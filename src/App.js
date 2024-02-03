@@ -314,7 +314,7 @@ function SystemDetails({
 
 function MaterialsCheckList({ materialListFrame, materialListElectrical }) {
   return (
-    <div className="">
+    <div className="checkList">
       <h2>Materials Checklist</h2>
       <h3>Frame</h3>
       <ul className="checkList">
