@@ -215,6 +215,7 @@ function SystemDetails({
       />
       <label>Panels Brand </label>
       <select
+        className="inputField"
         name=""
         id=""
         value={brandPanel}
@@ -225,6 +226,7 @@ function SystemDetails({
       </select>
       <label>Panel Rows</label>
       <input
+        className="inputField"
         type="text"
         value={panelsRowsNum}
         onChange={(e) =>
@@ -235,6 +237,7 @@ function SystemDetails({
       />
       <label>Panel columns</label>
       <input
+        className="inputField"
         type="text"
         value={panelsColumnsNum}
         onChange={(e) =>
@@ -246,6 +249,7 @@ function SystemDetails({
       <h3>Frame</h3>
       <label>Elevation front cm</label>
       <input
+        className="inputField"
         type="text"
         value={elevationFront}
         onChange={(e) =>
@@ -256,6 +260,7 @@ function SystemDetails({
       />
       <label>Elevation Back cm</label>
       <input
+        className="inputField"
         type="text"
         value={elevationBack}
         onChange={(e) =>
@@ -266,6 +271,7 @@ function SystemDetails({
       />
       Type of fixing
       <select
+        className="inputField"
         name=""
         id=""
         value={fixing}
@@ -276,18 +282,30 @@ function SystemDetails({
       </select>
       <h3>Electrical</h3>
       <label>Phase</label>
-      <select value={phase} onChange={(e) => setPhase(e.target.value)}>
+      <select
+        className="inputField"
+        value={phase}
+        onChange={(e) => setPhase(e.target.value)}
+      >
         <option value="singlePhase">1 phase</option>
         <option value="threePhase">3 phase</option>
       </select>
       <label>Inverter model</label>
       {phase === 'singlePhase' ? (
-        <select value={inverter} onChange={(e) => setInverter(e.target.value)}>
+        <select
+          className="inputField"
+          value={inverter}
+          onChange={(e) => setInverter(e.target.value)}
+        >
           <option value="Huawei 3.68 KTL">Huawei 3.68 KTL</option>
           <option value="Huawei 2 KTL">Huawei 2 KTL</option>
         </select>
       ) : (
-        <select value={inverter} onChange={(e) => setInverter(e.target.value)}>
+        <select
+          className="inputField"
+          value={inverter}
+          onChange={(e) => setInverter(e.target.value)}
+        >
           <option value="huawei 4 KTL">Huawei 4 KTL</option>
           <option value="Huawei 6 KTL">Huawei 6 KTL</option>
           <option value="Huawei 10 KTL">Huawei 10 KTL</option>
@@ -295,6 +313,7 @@ function SystemDetails({
       )}
       <label>Cabling m</label>
       <select
+        className="inputField"
         value={cablingLenght}
         onChange={(e) => setCablingLength(e.target.value)}
       >
@@ -302,7 +321,11 @@ function SystemDetails({
         <option value="over35">over 35m</option>
       </select>
       <label>Battaries</label>
-      <select value={bats} onChange={(e) => setBats(e.target.value)}>
+      <select
+        className="inputField"
+        value={bats}
+        onChange={(e) => setBats(e.target.value)}
+      >
         <option value="no">no</option>
         <option value="5kwh">5kwh</option>
         <option value="10kwh">10kwh</option>
@@ -314,7 +337,7 @@ function SystemDetails({
 
 function MaterialsCheckList({ materialListFrame, materialListElectrical }) {
   return (
-    <div className="checkList">
+    <div className="">
       <h2>Materials Checklist</h2>
       <h3>Frame</h3>
       <ul className="checkList">
@@ -354,12 +377,14 @@ function MaterialsCheckList({ materialListFrame, materialListElectrical }) {
             )
         )}
       </ul>
-      <button>send list</button>
-      <button>leg lego pieces</button>
-      <button>insctruction for bats assembly</button>
-      <button>insctruction for connection w/ bats</button>
-      <button>insctruction for connection w/o bats</button>
-      <button>insctruction for offgrid box</button>
+      <div className="btnContainer">
+        <button className="button">share list</button>
+        <button className="button">structure details</button>
+        <button className="button">simple connection FAQ</button>
+        <button className="button">bats assembly FAQ</button>
+        <button className="button">bats connection FAQ</button>
+        <button className="button">offgrid box FAQ</button>
+      </div>
     </div>
   );
 }
