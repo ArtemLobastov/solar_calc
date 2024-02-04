@@ -215,7 +215,7 @@ function SystemDetails({
       />
       <label>Panels Brand </label>
       <select
-        className="inputField"
+        className="input"
         name=""
         id=""
         value={brandPanel}
@@ -224,20 +224,9 @@ function SystemDetails({
         <option value="recom700">Recom 700</option>
         <option value="swissSolar545">Swiss Solar 545</option>
       </select>
-      <label>Panel Rows</label>
-      <input
-        className="inputField"
-        type="text"
-        value={panelsRowsNum}
-        onChange={(e) =>
-          e.target.value >= 0
-            ? setPanelsRowsNum((panelsRowsNum) => +e.target.value)
-            : panelsRowsNum
-        }
-      />
       <label>Panel columns</label>
       <input
-        className="inputField"
+        className="input"
         type="text"
         value={panelsColumnsNum}
         onChange={(e) =>
@@ -249,7 +238,7 @@ function SystemDetails({
       <h3>Frame</h3>
       <label>Elevation front cm</label>
       <input
-        className="inputField"
+        className="input"
         type="text"
         value={elevationFront}
         onChange={(e) =>
@@ -260,7 +249,7 @@ function SystemDetails({
       />
       <label>Elevation Back cm</label>
       <input
-        className="inputField"
+        className="input"
         type="text"
         value={elevationBack}
         onChange={(e) =>
@@ -271,7 +260,7 @@ function SystemDetails({
       />
       Type of fixing
       <select
-        className="inputField"
+        className="input"
         name=""
         id=""
         value={fixing}
@@ -283,7 +272,7 @@ function SystemDetails({
       <h3>Electrical</h3>
       <label>Phase</label>
       <select
-        className="inputField"
+        className="input"
         value={phase}
         onChange={(e) => setPhase(e.target.value)}
       >
@@ -293,7 +282,7 @@ function SystemDetails({
       <label>Inverter model</label>
       {phase === 'singlePhase' ? (
         <select
-          className="inputField"
+          className="input"
           value={inverter}
           onChange={(e) => setInverter(e.target.value)}
         >
@@ -302,7 +291,7 @@ function SystemDetails({
         </select>
       ) : (
         <select
-          className="inputField"
+          className="input"
           value={inverter}
           onChange={(e) => setInverter(e.target.value)}
         >
@@ -313,7 +302,7 @@ function SystemDetails({
       )}
       <label>Cabling m</label>
       <select
-        className="inputField"
+        className="input"
         value={cablingLenght}
         onChange={(e) => setCablingLength(e.target.value)}
       >
@@ -322,7 +311,7 @@ function SystemDetails({
       </select>
       <label>Battaries</label>
       <select
-        className="inputField"
+        className="input"
         value={bats}
         onChange={(e) => setBats(e.target.value)}
       >
@@ -339,13 +328,15 @@ function MaterialsCheckList({ materialListFrame, materialListElectrical }) {
   return (
     <div className="">
       <h2>Materials Checklist</h2>
+
       <h3>Frame</h3>
       <ul className="checkList">
         {materialListFrame.map(
           (material, i) =>
             material && (
-              <li key={Object.keys(material)}>
+              <li className="list-item" key={Object.keys(material)}>
                 <input
+                  className="checkbox"
                   type="checkbox"
                   onChange={(e) =>
                     (e.target.closest('li').style.textDecoration = `${
@@ -363,8 +354,9 @@ function MaterialsCheckList({ materialListFrame, materialListElectrical }) {
         {materialListElectrical.map(
           (material, i) =>
             material && (
-              <li key={Object.keys(material)}>
+              <li className="list-item" key={Object.keys(material)}>
                 <input
+                  className="checkbox"
                   type="checkbox"
                   onChange={(e) =>
                     (e.target.closest('li').style.textDecoration = `${
