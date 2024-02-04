@@ -203,132 +203,148 @@ function SystemDetails({
     <div className="systemDetails">
       <h2>System details</h2>
       <h3>Panels</h3>
-      <label>Quantity of panels ( {numPanels} )</label>
-      <input
-        value={numPanels}
-        type="range"
-        name=""
-        id=""
-        min="0"
-        max="20"
-        onChange={(e) => setNumPanels(+e.target.value)}
-      />
-      <label>Panels Brand </label>
-      <select
-        className="input"
-        name=""
-        id=""
-        value={brandPanel}
-        onChange={(e) => setBrandPanel(e.target.value)}
-      >
-        <option value="recom700">Recom 700</option>
-        <option value="swissSolar545">Swiss Solar 545</option>
-      </select>
-      <label>Panel columns</label>
-      <input
-        className="input"
-        type="text"
-        value={panelsColumnsNum}
-        onChange={(e) =>
-          e.target.value >= 0
-            ? setPanelsColumnsNum(+e.target.value)
-            : panelsColumnsNum
-        }
-      />
+      <div className="inputGroup">
+        <label>Quantity of panels ( {numPanels} )</label>
+        <input
+          value={numPanels}
+          type="range"
+          name=""
+          id=""
+          min="0"
+          max="20"
+          onChange={(e) => setNumPanels(+e.target.value)}
+        />
+        <label>Panels Brand </label>
+        <select
+          className="input"
+          name=""
+          id=""
+          value={brandPanel}
+          onChange={(e) => setBrandPanel(e.target.value)}
+        >
+          <option value="recom700">Recom 700</option>
+          <option value="swissSolar545">Swiss Solar 545</option>
+        </select>
+        <label>Panel rows</label>
+        <input
+          className="input"
+          type="text"
+          value={panelsRowsNum}
+          onChange={(e) =>
+            e.target.value >= 0
+              ? setPanelsRowsNum(+e.target.value)
+              : panelsRowsNum
+          }
+        />
+        <label>Panel columns</label>
+        <input
+          className="input"
+          type="text"
+          value={panelsColumnsNum}
+          onChange={(e) =>
+            e.target.value >= 0
+              ? setPanelsColumnsNum(+e.target.value)
+              : panelsColumnsNum
+          }
+        />
+      </div>
       <h3>Frame</h3>
-      <label>Elevation front cm</label>
-      <input
-        className="input"
-        type="text"
-        value={elevationFront}
-        onChange={(e) =>
-          e.target.value >= 0
-            ? setElevationFront(+e.target.value)
-            : elevationFront
-        }
-      />
-      <label>Elevation Back cm</label>
-      <input
-        className="input"
-        type="text"
-        value={elevationBack}
-        onChange={(e) =>
-          e.target.value >= 0
-            ? setElevationBack(+e.target.value)
-            : elevationBack
-        }
-      />
-      Type of fixing
-      <select
-        className="input"
-        name=""
-        id=""
-        value={fixing}
-        onChange={(e) => setFixing(e.target.value)}
-      >
-        <option value="roof">To the roof</option>
-        <option value="bricks">On bricks</option>
-      </select>
+      <div className="inputGroup">
+        <label>Elevation front cm</label>
+        <input
+          className="input"
+          type="text"
+          value={elevationFront}
+          onChange={(e) =>
+            e.target.value >= 0
+              ? setElevationFront(+e.target.value)
+              : elevationFront
+          }
+        />
+        <label>Elevation Back cm</label>
+        <input
+          className="input"
+          type="text"
+          value={elevationBack}
+          onChange={(e) =>
+            e.target.value >= 0
+              ? setElevationBack(+e.target.value)
+              : elevationBack
+          }
+        />
+        Type of fixing
+        <select
+          className="input"
+          name=""
+          id=""
+          value={fixing}
+          onChange={(e) => setFixing(e.target.value)}
+        >
+          <option value="roof">To the roof</option>
+          <option value="bricks">On bricks</option>
+        </select>
+      </div>
       <h3>Electrical</h3>
-      <label>Phase</label>
-      <select
-        className="input"
-        value={phase}
-        onChange={(e) => setPhase(e.target.value)}
-      >
-        <option value="singlePhase">1 phase</option>
-        <option value="threePhase">3 phase</option>
-      </select>
-      <label>Inverter model</label>
-      {phase === 'singlePhase' ? (
+      <div className="inputGroup">
+        <label>Phase</label>
         <select
           className="input"
-          value={inverter}
-          onChange={(e) => setInverter(e.target.value)}
+          value={phase}
+          onChange={(e) => setPhase(e.target.value)}
         >
-          <option value="Huawei 3.68 KTL">Huawei 3.68 KTL</option>
-          <option value="Huawei 2 KTL">Huawei 2 KTL</option>
+          <option value="singlePhase">1 phase</option>
+          <option value="threePhase">3 phase</option>
         </select>
-      ) : (
+        <label>Inverter model</label>
+        {phase === 'singlePhase' ? (
+          <select
+            className="input"
+            value={inverter}
+            onChange={(e) => setInverter(e.target.value)}
+          >
+            <option value="Huawei 3.68 KTL">Huawei 3.68 KTL</option>
+            <option value="Huawei 2 KTL">Huawei 2 KTL</option>
+          </select>
+        ) : (
+          <select
+            className="input"
+            value={inverter}
+            onChange={(e) => setInverter(e.target.value)}
+          >
+            <option value="huawei 4 KTL">Huawei 4 KTL</option>
+            <option value="Huawei 6 KTL">Huawei 6 KTL</option>
+            <option value="Huawei 10 KTL">Huawei 10 KTL</option>
+          </select>
+        )}
+        <label>Cabling m</label>
         <select
           className="input"
-          value={inverter}
-          onChange={(e) => setInverter(e.target.value)}
+          value={cablingLenght}
+          onChange={(e) => setCablingLength(e.target.value)}
         >
-          <option value="huawei 4 KTL">Huawei 4 KTL</option>
-          <option value="Huawei 6 KTL">Huawei 6 KTL</option>
-          <option value="Huawei 10 KTL">Huawei 10 KTL</option>
+          <option value="35">35m or less</option>
+          <option value="over35">over 35m</option>
         </select>
-      )}
-      <label>Cabling m</label>
-      <select
-        className="input"
-        value={cablingLenght}
-        onChange={(e) => setCablingLength(e.target.value)}
-      >
-        <option value="35">35m or less</option>
-        <option value="over35">over 35m</option>
-      </select>
-      <label>Battaries</label>
-      <select
-        className="input"
-        value={bats}
-        onChange={(e) => setBats(e.target.value)}
-      >
-        <option value="no">no</option>
-        <option value="5kwh">5kwh</option>
-        <option value="10kwh">10kwh</option>
-        <option value="15kwh">15kwh</option>
-      </select>
+        <label>Battaries</label>
+        <select
+          className="input"
+          value={bats}
+          onChange={(e) => setBats(e.target.value)}
+        >
+          <option value="no">no</option>
+          <option value="5kwh">5kwh</option>
+          <option value="10kwh">10kwh</option>
+          <option value="15kwh">15kwh</option>
+        </select>
+      </div>
     </div>
   );
 }
 
 function MaterialsCheckList({ materialListFrame, materialListElectrical }) {
   return (
-    <div className="">
+    <div className="rightSide">
       <h2>Materials Checklist</h2>
-
       <h3>Frame</h3>
       <ul className="checkList">
         {materialListFrame.map(
