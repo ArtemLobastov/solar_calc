@@ -385,10 +385,15 @@ function MaterialsCheckList({ materialListFrame, materialListElectrical }) {
             )
         )}
       </ul>
+      <h3>Consumables</h3>
+      <ul className="checkList">
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
       <div className="btnContainer">
         <button className="button">share list</button>
         <button className="button">structure details</button>
-        <button className="button">simple connection FAQ</button>
         <button className="button">bats assembly FAQ</button>
         <button className="button">bats connection FAQ</button>
         <button className="button">offgrid box FAQ</button>
